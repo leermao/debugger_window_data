@@ -22,6 +22,8 @@ git clone git@github.com:leermao/debugger_window_data.git
 - 打开开发者模式 => 加载已经解压的扩展程序
   !['添加扩展程序'](./img/ext1.png)
 - 选择代码路径就可以直接使用
+- 出现下面图标算成功
+  !['icon'](./img/icon-res.png)
 
 如果插件有更新 直接刷新插件就可以
 
