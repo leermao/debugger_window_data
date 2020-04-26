@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "format_debugger",
+  "version": "1.0.0",
+  "description": "格式化debuger数据，在页面中显示，方便前端人员调试",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["js/index.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_title": "这是一个格式化debuger数据的插件",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": ["js/data.js"]
+}
