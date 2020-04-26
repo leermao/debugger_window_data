@@ -15,4 +15,4 @@ function injectStyle(url, node) {
   link.href = url;
   head.appendChild(link);
 }
-injectStyle(chrome.extension.getURL("./css/debugger.css"), "head");
+injectStyle(chrome.extension.getURL("css/debugger.css"), "head");

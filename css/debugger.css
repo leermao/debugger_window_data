@@ -1,16 +1,16 @@
-#chrome_debugger {
+#_chrome_debugger {
   font-size: 16px;
   line-height: 1.5;
   z-index: 11111;
 }
 
-#chrome_debugger #debugger-handle {
+#_chrome_debugger #debugger-handle {
   position: fixed;
   right: 1px;
   top: 1px;
 }
 
-#chrome_debugger #debugger-content {
+#_chrome_debugger #debugger-content {
   width: 90%;
   height: 100%;
   position: fixed;
@@ -22,43 +22,43 @@
   z-index: 9999;
 }
 
-#chrome_debugger #debugger-content .value {
+#_chrome_debugger #debugger-content .value {
   color: #d8ffb0;
 }
 
-#chrome_debugger #debugger-content em {
+#_chrome_debugger #debugger-content em {
   color: #40e0d0;
   font-weight: bold;
 }
 
-#chrome_debugger #debugger-content .special {
+#_chrome_debugger #debugger-content .special {
   color: #ff3333;
 }
 
-#chrome_debugger #debugger-content .number {
+#_chrome_debugger #debugger-content .number {
   color: #7fff00;
 }
 
-#chrome_debugger #debugger-toggle:checked ~ #debugger-content {
+#_chrome_debugger #debugger-toggle:checked ~ #debugger-content {
   left: 10%;
 }
 
-#chrome_debugger #debugger-toggle:checked ~ #debugger-handle {
+#_chrome_debugger #debugger-toggle:checked ~ #debugger-handle {
   right: 90%;
 }
 
-#chrome_debugger .export {
+#_chrome_debugger .export {
   float: right;
 }
 
-#chrome_debugger .debugger-common-block {
+#_chrome_debugger .debugger-common-block {
   border: 1px solid #193441;
   box-shadow: 0px 0px 3px #3e606f;
   background: #3e606f;
   color: #fcfff5;
 }
 
-#chrome_debugger .debugger-handle-block {
+#_chrome_debugger .debugger-handle-block {
   width: 50px;
   height: 40px;
   line-height: 40px;
@@ -71,7 +71,7 @@
   z-index: 10000;
 }
 
-#chrome_debugger .debugger-transition {
+#_chrome_debugger .debugger-transition {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
@@ -79,28 +79,28 @@
   transition: all 0.2s ease-in-out;
 }
 
-#chrome_debugger .debugger-common-toggle {
+#_chrome_debugger .debugger-common-toggle {
   display: none;
 }
 
-#chrome_debugger .debugger-common-handle {
+#_chrome_debugger .debugger-common-handle {
   cursor: pointer;
   display: inline;
 }
 
-#chrome_debugger .debugger-content-block {
+#_chrome_debugger .debugger-content-block {
   display: none;
 }
 
-#chrome_debugger .debugger-common-toggle:checked ~ .debugger-content-block {
+#_chrome_debugger .debugger-common-toggle:checked ~ .debugger-content-block {
   display: block;
 }
 
-#chrome_debugger .depth-0 {
+#_chrome_debugger .depth-0 {
   display: block;
 }
 
-#chrome_debugger .debugger-accordion-handle {
+#_chrome_debugger .debugger-accordion-handle {
   display: block;
   width: 100%;
   text-align: left;
