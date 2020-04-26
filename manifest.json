@@ -14,5 +14,6 @@
     "default_icon": "img/icon.png",
     "default_title": "这是一个格式化debuger数据的插件",
     "default_popup": "popup.html"
-  }
+  },
+  "web_accessible_resources": ["js/data.js", "css/debugger.css"]
 }
