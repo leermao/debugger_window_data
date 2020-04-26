@@ -1,4 +1,4 @@
-# debug `window.__DEBUG__`下数据
+# debug `window.__DEBUG__` 下数据
 
 ## 背景
 
