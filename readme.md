@@ -1,8 +1,14 @@
-# debugger 数据
+# debug `window.__DEBUG__`下数据
 
 ## 背景
 
 目前在 smarty 模板中，查看数据不是很清晰，为此编写一个转成 json 的页面
+
+## 效果
+
+!['展示'](./img/home.gif)
+
+!['展示'](./img/res.png)
 
 ## 使用方式
 
@@ -18,10 +24,6 @@ git clone git@github.com:leermao/debugger_window_data.git
 - 选择代码路径就可以直接使用
 
 如果插件有更新 直接刷新插件就可以
-
-## 效果
-
-!['展示'](./img/res.png)
 
 ## 注意
 
