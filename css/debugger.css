@@ -88,12 +88,26 @@
   display: inline;
 }
 
+#_chrome_debugger .debugger-common-handle::before {
+  content: '+';
+  display: inline-block;
+  width: 30px;
+  margin-left: -30px;
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
 #_chrome_debugger .debugger-content-block {
   display: none;
 }
 
 #_chrome_debugger .debugger-common-toggle:checked ~ .debugger-content-block {
   display: block;
+}
+
+#_chrome_debugger .debugger-common-toggle:checked ~ .debugger-common-handle::before {
+  content: '-';
 }
 
 #_chrome_debugger .depth-0 {

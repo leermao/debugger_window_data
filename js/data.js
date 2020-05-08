@@ -1,5 +1,13 @@
 let debuggerUuid = 0;
 
+function beginBracketByType(val) {
+  return Array.isArray(val) ? '[' : '{'
+}
+
+function arrayLen(key, val) {
+  return Array.isArray(val) ? `${key}(<em>array[${val.length}])</em>)` : `${key}(<em>Object</em>)`
+}
+
 function render(datas) {
   const arr = [];
   arr.push("<div>");
@@ -70,7 +78,7 @@ function renderContent(datas) {
  *
  * render 每行内容 递归展示
  */
-function renderItem(values, deep = 0) {
+function renderItem(values, deep = 0, isArray) {
   const nextDeep = deep + 1;
 
   let out = `<div class="debugger-content-block depth-${deep}">`;
@@ -83,12 +91,12 @@ function renderItem(values, deep = 0) {
       const domid = `${debuggerUuid++}`;
       const len = Object.keys(value).length;
 
-      let objkey = `<input class="debugger-common-toggle" type="checkbox" name="debugger-toggles-${domid}" id="debugger-toggle-${domid}" /><label class="debugger-common-handle"   for="debugger-toggle-${domid}" >${key} (<em>array[${len}])</em>) {<br/></label>`;
+      let objkey = `<input class="debugger-common-toggle" type="checkbox" name="debugger-toggles-${domid}" id="debugger-toggle-${domid}" /><label class="debugger-common-handle"   for="debugger-toggle-${domid}" >${arrayLen(key, value)} ${beginBracketByType(value)}<br/></label>`;
 
       out += `${objkey}`;
 
       const objVal = `
-        ${renderItem(value, deep + 1)}
+        ${renderItem(value, deep + 1, Array.isArray(value))}
         </div>
       `;
 
@@ -102,8 +110,7 @@ function renderItem(values, deep = 0) {
     }
   }
 
-  out += `<span>${"&nbsp;".repeat(deep * 4)}</span>}</div>`;
-
+  out += `<span>${"&nbsp;".repeat(deep * 4)}</span>${isArray ?']' : '}'}</div>`;
   return out;
 }
 
@@ -134,6 +141,5 @@ function setValueDomColor(value) {
 }
 
 if (typeof window.__DEBUG__ !== undefined && window.__DEBUG__) {
-  console.log(window.__DEBUG__);
   document.querySelector("body").appendChild(render(window.__DEBUG__));
 }
