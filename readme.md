@@ -6,8 +6,6 @@
 
 ## 效果
 
-!['展示'](./img/home.gif)
-
 !['展示'](./img/res.png)
 
 ## 使用方式
@@ -43,12 +41,9 @@ window.__DEBUG__.xxx = {
 
 ```php
 <script>
-    if (typeof window.__DEBUG__ === 'undefined') {
-        window.__DEBUG__ = null;
-    }
     window.__DEBUG__ = {
-      TemplateData: <?php echo json_encode($data); ?>
-    };
+      TEMPLATE_DATA:{%$data|@json_encode%}
+    }
 </script>
 
 TemplateData 中 $data 为页面所使用的数据
