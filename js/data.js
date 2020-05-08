@@ -103,7 +103,7 @@ function renderItem(values, deep = 0, isArray) {
       out += `${objVal}`;
     } else {
       //key
-      out += `<span class="key">${key}</span>:&nbsp;`;
+      out += `<span class="key">${key}(<em>${typeof value }</em>)</span>:&nbsp;`;
 
       // value
       out += `${setValueDomColor(value)} </div>`;
