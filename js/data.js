@@ -1,11 +1,13 @@
 let debuggerUuid = 0;
 
 function beginBracketByType(val) {
-  return Array.isArray(val) ? '[' : '{'
+  return Array.isArray(val) ? "[" : "{";
 }
 
 function arrayLen(key, val) {
-  return Array.isArray(val) ? `${key}(<em>array[${val.length}])</em>)` : `${key}(<em>Object</em>)`
+  return Array.isArray(val)
+    ? `${key}(<em>array[${val.length}])</em>)`
+    : `${key}(<em>Object</em>)`;
 }
 
 function render(datas) {
@@ -91,7 +93,10 @@ function renderItem(values, deep = 0, isArray) {
       const domid = `${debuggerUuid++}`;
       const len = Object.keys(value).length;
 
-      let objkey = `<input class="debugger-common-toggle" type="checkbox" name="debugger-toggles-${domid}" id="debugger-toggle-${domid}" /><label class="debugger-common-handle"   for="debugger-toggle-${domid}" >${arrayLen(key, value)} ${beginBracketByType(value)}<br/></label>`;
+      let objkey = `<input class="debugger-common-toggle" type="checkbox" name="debugger-toggles-${domid}" id="debugger-toggle-${domid}" /><label class="debugger-common-handle"   for="debugger-toggle-${domid}" >${arrayLen(
+        key,
+        value
+      )} ${beginBracketByType(value)}<br/></label>`;
 
       out += `${objkey}`;
 
@@ -103,14 +108,16 @@ function renderItem(values, deep = 0, isArray) {
       out += `${objVal}`;
     } else {
       //key
-      out += `<span class="key">${key}(<em>${typeof value }</em>)</span>:&nbsp;`;
+      out += `<span class="key">${key}</span>:&nbsp;`;
 
       // value
       out += `${setValueDomColor(value)} </div>`;
     }
   }
 
-  out += `<span>${"&nbsp;".repeat(deep * 4)}</span>${isArray ?']' : '}'}</div>`;
+  out += `<span>${"&nbsp;".repeat(deep * 4)}</span>${
+    isArray ? "]" : "}"
+  }</div>`;
   return out;
 }
 
