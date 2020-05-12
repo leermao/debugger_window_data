@@ -96,6 +96,7 @@
   color: red;
   font-size: 16px;
   text-align: center;
+  font-weight: bold;
 }
 
 #_chrome_debugger .debugger-content-block {
