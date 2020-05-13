@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "format_debugger",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "格式化debuger数据，在页面中显示，方便前端人员调试",
   "content_scripts": [
     {

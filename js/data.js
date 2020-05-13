@@ -87,13 +87,12 @@ function renderItem(values, deep = 0, isArray) {
 
   for (let key in values) {
     const value = values[key];
-    out += `<div><span>${"&nbsp;".repeat(nextDeep * 4)}</span>`;
 
     if (value instanceof Object && Object.keys(value).length) {
+      out += `<div><span>${"&nbsp;".repeat(nextDeep * 4)}</span>`;
       const domid = `${debuggerUuid++}`;
-      const len = Object.keys(value).length;
 
-      let objkey = `<input class="debugger-common-toggle" type="checkbox" name="debugger-toggles-${domid}" id="debugger-toggle-${domid}" /><label class="debugger-common-handle"   for="debugger-toggle-${domid}" >${arrayLen(
+      let objkey = `<input class="debugger-common-toggle" type="checkbox" name="debugger-toggles-${domid}" id="debugger-toggle-${domid}" /><label class="debugger-common-handle" for="debugger-toggle-${domid}">${arrayLen(
         key,
         value
       )} ${beginBracketByType(value)}<br/></label>`;
@@ -107,11 +106,17 @@ function renderItem(values, deep = 0, isArray) {
 
       out += `${objVal}`;
     } else {
+      out += `<div><div class="base-css"><span>${"&nbsp;".repeat(
+        nextDeep * 4
+      )}</span>`;
+
       //key
       out += `<span class="key">${key}</span>:&nbsp;`;
 
+      const copyDom = ``;
+
       // value
-      out += `${setValueDomColor(value)} </div>`;
+      out += `${setValueDomColor(value)} ${copyDom}</div></div>`;
     }
   }
 
