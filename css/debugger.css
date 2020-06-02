@@ -23,20 +23,22 @@
 }
 
 #_chrome_debugger #debugger-content .value {
-  color: #d8ffb0;
+  color: #f7e68b;
 }
 
 #_chrome_debugger #debugger-content em {
-  color: #40e0d0;
+  color: #2cf4f5;
   font-weight: bold;
 }
 
 #_chrome_debugger #debugger-content .special {
-  color: #ff3333;
+  color: #f54048;
+  font-weight: bold;
 }
 
 #_chrome_debugger #debugger-content .number {
   color: #7fff00;
+  font-weight: bold;
 }
 
 #_chrome_debugger #debugger-toggle:checked ~ #debugger-content {
@@ -53,8 +55,8 @@
 
 #_chrome_debugger .debugger-common-block {
   border: 1px solid #193441;
-  box-shadow: 0px 0px 3px #3e606f;
-  background: #3e606f;
+  box-shadow: 0px 0px 3px #1d2339;
+  background: #1d2339;
   color: #fcfff5;
   box-sizing: border-box;
   cursor: pointer;
@@ -67,9 +69,8 @@
   text-align: center;
   font-weight: bold;
   font-size: 18px;
-  background: -moz-linear-gradient(top, #ffc700 0, #ffab00 100%);
-  background: -webkit-linear-gradient(top, #ffc700 0, #ffab00 100%);
-  color: #333333;
+  background: #7e6dd2;
+  color: #fff;
   z-index: 10000;
 }
 
@@ -124,4 +125,45 @@
   width: 100%;
   text-align: left;
   padding: 0 12px;
+}
+
+#_chrome_debugger .debugger_box {
+  box-sizing: border-box;
+  padding: 0 0 0 30px;
+}
+
+#_chrome_debugger .render-line-item {
+  position: relative;
+}
+
+#_chrome_debugger .render-line-item:hover > .copy-box {
+  display: block;
+}
+
+#_chrome_debugger .render-line-item .copy-box {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  font-size: 14px;
+  background: #f54048;
+  padding: 3px 10px;
+  line-height: 1;
+  z-index: 11;
+}
+
+#_chrome_debugger .render-line-item .copy-box input {
+  position: absolute;
+  right: -200%;
+  opacity: 0;
+  z-index: -1;
+}
+
+#_chrome_debugger .render-line-item .copy-box .copy-path {
+  margin-left: 10px;
+}
+
+#_chrome_debugger .render-line-item .copy-box .copy-path,
+#_chrome_debugger .render-line-item .copy-box .copy-text {
+  display: inline-block;
 }

@@ -54,6 +54,7 @@ function renderContent(datas) {
       <input
         class="debugger-common-toggle"
         type="checkbox"
+        checked
         name="debugger-accordions-${data.toLowerCase()}"
         id="debugger-accordion-${data.toLowerCase()}"
       />
@@ -80,16 +81,19 @@ function renderContent(datas) {
  *
  * render 每行内容 递归展示
  */
-function renderItem(values, deep = 0, isArray) {
+function renderItem(values, deep = 0, isArray, path = "") {
   const nextDeep = deep + 1;
 
   let out = `<div class="debugger-content-block depth-${deep}">`;
 
   for (let key in values) {
     const value = values[key];
+    out += `<div class="render-line-item render-line-item${deep}">`;
 
     if (value instanceof Object && Object.keys(value).length) {
-      out += `<div><span>${"&nbsp;".repeat(nextDeep * 4)}</span>`;
+      // out += `<div style="padding:0 ${nextDeep * 30}px">`;
+      out += `<div class="debugger_box">`;
+
       const domid = `${debuggerUuid++}`;
 
       let objkey = `<input class="debugger-common-toggle" type="checkbox" name="debugger-toggles-${domid}" id="debugger-toggle-${domid}" /><label class="debugger-common-handle" for="debugger-toggle-${domid}">${arrayLen(
@@ -99,16 +103,21 @@ function renderItem(values, deep = 0, isArray) {
 
       out += `${objkey}`;
 
+      const newPath = isArray
+        ? `${path}[${key}]`
+        : path
+        ? `${path}.${key}`
+        : key;
+
       const objVal = `
-        ${renderItem(value, deep + 1, Array.isArray(value))}
+        ${renderItem(value, deep + 1, Array.isArray(value), newPath)}
         </div>
       `;
 
-      out += `${objVal}`;
+      out += `${objVal}</div>`;
     } else {
-      out += `<div><div class="base-css"><span>${"&nbsp;".repeat(
-        nextDeep * 4
-      )}</span>`;
+      // out += `<div><div class="base-css debugger_box" style="padding:0 ${nextDeep * 30}px">`;
+      out += `<div class="debugger_box">`;
 
       //key
       out += `<span class="key">${key}</span>:&nbsp;`;
@@ -116,14 +125,40 @@ function renderItem(values, deep = 0, isArray) {
       const copyDom = ``;
 
       // value
-      out += `${setValueDomColor(value)} ${copyDom}</div></div>`;
+      out += `${setValueDomColor(value)} ${copyDom}</div>`;
+
+      const copyPath = path ? `${path}.${key}` : key;
+
+      // result
+      out += `${renderCopyText(key, copyPath)}</div>`;
     }
   }
-
-  out += `<span>${"&nbsp;".repeat(deep * 4)}</span>${
-    isArray ? "]" : "}"
-  }</div>`;
+  // <span style="padding:0 ${deep * 30}px"></span>
+  out += `${isArray ? "]" : "}"}</div>`;
   return out;
+}
+
+function renderCopyText(key, copyPath) {
+  return `<div class="copy-box">
+    <div class="copy-text" onclick="handleCopyText(this)">
+      <input value=${key} />
+      复制文本
+    </div>
+    <div class="copy-path" onclick="handleCopyText(this)">
+      <input value=${copyPath} />
+      复制路径
+    </div>
+  </div>`;
+}
+
+function handleCopyText(data) {
+  const input = data.childNodes[1];
+  input.select();
+  document.execCommand("copy");
+
+  if (document.execCommand("copy")) {
+    alert("复制成功");
+  }
 }
 
 /**

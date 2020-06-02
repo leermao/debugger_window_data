@@ -5,7 +5,7 @@ function injectScript(file, node) {
   script.setAttribute("src", file);
   body.appendChild(script);
 }
-injectScript(chrome.extension.getURL("js/data.js"), "body");
+injectScript(chrome.extension.getURL("js/devtools.js"), "body");
 
 function injectStyle(url, node) {
   const head = document.getElementsByTagName(node)[0];
