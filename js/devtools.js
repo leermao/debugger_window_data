@@ -155,10 +155,6 @@ function handleCopyText(data) {
   const input = data.childNodes[1];
   input.select();
   document.execCommand("copy");
-
-  if (document.execCommand("copy")) {
-    alert("复制成功");
-  }
 }
 
 /**
