@@ -11,10 +11,10 @@
 }
 
 #_chrome_debugger #debugger-content {
-  width: 90%;
+  width: 100%;
   height: 100%;
   position: fixed;
-  left: 101%;
+  left: 0;
   top: 0;
   font-family: Consolas, "Courier New", monospace;
   overflow-y: scroll;
@@ -28,7 +28,6 @@
 
 #_chrome_debugger #debugger-content em {
   color: #2cf4f5;
-  font-weight: bold;
 }
 
 #_chrome_debugger #debugger-content .special {
@@ -41,13 +40,6 @@
   font-weight: bold;
 }
 
-#_chrome_debugger #debugger-toggle:checked ~ #debugger-content {
-  left: 10%;
-}
-
-#_chrome_debugger #debugger-toggle:checked ~ #debugger-handle {
-  right: 90%;
-}
 
 #_chrome_debugger .export {
   float: right;
@@ -59,19 +51,6 @@
   background: #1d2339;
   color: #fcfff5;
   box-sizing: border-box;
-  cursor: pointer;
-}
-
-#_chrome_debugger .debugger-handle-block {
-  width: 50px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
-  background: #7e6dd2;
-  color: #fff;
-  z-index: 10000;
 }
 
 #_chrome_debugger .debugger-transition {
@@ -96,10 +75,15 @@
   display: inline-block;
   width: 30px;
   margin-left: -30px;
-  color: red;
+  color: rgb(255, 83, 112);
   font-size: 16px;
   text-align: center;
   font-weight: bold;
+}
+
+#_chrome_debugger .debugger-content {
+    display: block;
+    margin: 30px;
 }
 
 #_chrome_debugger .debugger-content-block {
@@ -122,10 +106,12 @@
 
 #_chrome_debugger .debugger-accordion-handle {
   display: block;
-  width: 100%;
+  width: 100px;
+  height: 50px;
   text-align: left;
   padding: 0 12px;
 }
+
 
 #_chrome_debugger .debugger_box {
   box-sizing: border-box;
@@ -157,6 +143,7 @@
   right: -200%;
   opacity: 0;
   z-index: -1;
+  cursor: pointer;
 }
 
 #_chrome_debugger .render-line-item .copy-box .copy-path {
@@ -166,4 +153,5 @@
 #_chrome_debugger .render-line-item .copy-box .copy-path,
 #_chrome_debugger .render-line-item .copy-box .copy-text {
   display: inline-block;
+  cursor: pointer;
 }
